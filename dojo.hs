@@ -27,6 +27,7 @@ data Hand =
   deriving (Eq, Show)
 
 checkHand :: [Card] -> Hand
+checkHand [] = error "Empty hand"
 checkHand cards@(x:xs)
   | count /= 5                       = error "Wrong number of cards"
   | royal && flush                   = RoyalFlush
