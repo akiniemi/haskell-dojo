@@ -48,7 +48,7 @@ checkHand cards@(x:xs)
         kinds    = map length $ group ranks
         flush    = checkFlush $ sort cards
         ranks    = sort . map rank $ cards
-        straight = ranks `isInfixOf` [1..14]
+        straight = ranks `isInfixOf` [1..14] || ranks `isInfixOf` (14:[2..13])
         royal    = ranks == [10..14] || ranks == 1:[10..13]
 
 testHighCard      = [Card Hearts 14, Card Hearts 2, Card Spades 11, Card Diamonds 12, Card Spades 5]
@@ -67,7 +67,7 @@ testRoyalFlushAce = [Card Hearts 11, Card Hearts 13, Card Hearts 12, Card Hearts
 
 tests = [
   (HighCard, testHighCard), (Pair, testPair), (TwoPairs, testTwoPairs), (ThreeOfKind, testThreeOfKind),
-  (Straight, testStraight), (Straight, testStraightAce), (Flush, testFlush), (Flush, testFlushJoker),
+  (Straight, testStraight), (Straight, testStraightAce), (Flush, testFlush),
   (FullHouse, testFullHouse), (FourOfKind, testFourOfKind), (StraightFlush, testStraightFlush),
   (RoyalFlush, testRoyalFlush), (RoyalFlush, testRoyalFlushAce)
   ]
