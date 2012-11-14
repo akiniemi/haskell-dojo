@@ -26,6 +26,10 @@ data Hand =
   | HighCard
   deriving (Eq, Show)
 
+checkFlush :: [Card] -> Bool
+checkFlush (x:xs) = all (\each -> each == Joker || suit each == suit x) xs
+checkFlush _ = False
+
 checkHand :: [Card] -> Hand
 checkHand [] = error "Empty hand"
 checkHand cards@(x:xs)
@@ -42,7 +46,7 @@ checkHand cards@(x:xs)
   | otherwise                        = HighCard
   where count    = length cards
         kinds    = map length $ group ranks
-        flush    = all (\each -> suit each == suit x) xs
+        flush    = checkFlush $ sort cards
         ranks    = sort . map rank $ cards
         straight = ranks `isInfixOf` [1..14]
         royal    = ranks == [10..14] || ranks == 1:[10..13]
