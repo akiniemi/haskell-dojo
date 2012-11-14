@@ -51,19 +51,19 @@ checkHand cards@(x:xs)
         straight = ranks `isInfixOf` [1..14] || ranks `isInfixOf` (14:[2..13])
         royal    = ranks == [10..14] || ranks == 1:[10..13]
 
-testHighCard      = [Card Hearts 14, Card Hearts 2, Card Spades 11, Card Diamonds 12, Card Spades 5]
-testPair          = [Card Hearts 14, Card Spades 14, Card Diamonds 3, Card Hearts 4, Card Clubs 7]
-testTwoPairs      = [Card Hearts 14, Card Spades 14, Card Diamonds 3, Card Hearts 7, Card Clubs 7]
-testThreeOfKind   = [Card Hearts 14, Card Spades 14, Card Diamonds 14, Card Hearts 4, Card Clubs 7]
-testStraight      = [Card Hearts 3, Card Spades 2, Card Diamonds 5, Card Hearts 4, Card Clubs 6]
-testStraightAce   = [Card Hearts 3, Card Spades 2, Card Diamonds 5, Card Hearts 4, Card Clubs 1]
-testFlush         = [Card Hearts 14, Card Hearts 4, Card Hearts 3, Card Hearts 8, Card Hearts 7]
-testFlushJoker    = [Joker, Card Hearts 4, Card Hearts 3, Card Hearts 8, Card Hearts 7]
-testFullHouse     = [Card Hearts 14, Card Spades 14, Card Diamonds 3, Card Hearts 3, Card Clubs 3]
-testFourOfKind    = [Card Hearts 14, Card Spades 14, Card Diamonds 14, Card Hearts 4, Card Clubs 14]
-testStraightFlush = [Card Hearts 11, Card Hearts 9, Card Hearts 7, Card Hearts 8, Card Hearts 10]
-testRoyalFlush    = [Card Hearts 11, Card Hearts 13, Card Hearts 12, Card Hearts 10, Card Hearts 14]
-testRoyalFlushAce = [Card Hearts 11, Card Hearts 13, Card Hearts 12, Card Hearts 10, Card Hearts 1]
+testHighCard        = [Card Hearts 14, Card Hearts 2, Card Spades 11, Card Diamonds 12, Card Spades 5]
+testPair            = [Card Hearts 14, Card Spades 14, Card Diamonds 3, Card Hearts 4, Card Clubs 7]
+testTwoPairs        = [Card Hearts 14, Card Spades 14, Card Diamonds 3, Card Hearts 7, Card Clubs 7]
+testThreeOfKind     = [Card Hearts 14, Card Spades 14, Card Diamonds 14, Card Hearts 4, Card Clubs 7]
+testStraight        = [Card Hearts 3, Card Spades 2, Card Diamonds 5, Card Hearts 4, Card Clubs 6]
+testStraightAce     = [Card Hearts 3, Card Spades 2, Card Diamonds 5, Card Hearts 4, Card Clubs 1]
+testStraightHighAce = [Card Hearts 3, Card Spades 2, Card Diamonds 5, Card Hearts 4, Card Clubs 14]
+testFlush           = [Card Hearts 14, Card Hearts 4, Card Hearts 3, Card Hearts 8, Card Hearts 7]
+testFullHouse       = [Card Hearts 14, Card Spades 14, Card Diamonds 3, Card Hearts 3, Card Clubs 3]
+testFourOfKind      = [Card Hearts 14, Card Spades 14, Card Diamonds 14, Card Hearts 4, Card Clubs 14]
+testStraightFlush   = [Card Hearts 11, Card Hearts 9, Card Hearts 7, Card Hearts 8, Card Hearts 10]
+testRoyalFlush      = [Card Hearts 11, Card Hearts 13, Card Hearts 12, Card Hearts 10, Card Hearts 14]
+testRoyalFlushAce   = [Card Hearts 11, Card Hearts 13, Card Hearts 12, Card Hearts 10, Card Hearts 1]
 
 tests = [
   (HighCard, testHighCard), (Pair, testPair), (TwoPairs, testTwoPairs), (ThreeOfKind, testThreeOfKind),
